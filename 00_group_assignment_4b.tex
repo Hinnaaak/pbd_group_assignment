@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float, graphicx}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{svg}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=.,
+    citecolor=.,
+    urlcolor=.
+}
+
+\addbibresource{references.bib}
+
+\title{
+{Privacy Risk and Harms Assessment with the PRIAM Methodology}\\
+\bigskip
+\includegraphics[width = 40mm]{pictures/uio.png}\\
+{Group Assignment 4B}\\
+{UiO - Department of Informatics}\\
+}
+\bigskip
+\bigskip
+\author{Andreas Nyg\aa{}rd Lj\o{}terud, Hemel Howlander, Malte Hansen}
+\date{October 31th, 2022} 
+
+\begin{document}
+
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage
+
+\pagenumbering{roman}
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\pagenumbering{arabic}
+\include{01_introduction}
+
+\include{02_priam}
+
+\include{03_example}
+
+\include{04_discussion}
+
+\include{05_conclusion}
+
+\printbibliography
+
+\end{document}
