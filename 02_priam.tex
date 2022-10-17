@@ -53,12 +53,20 @@ Phase}, we are set to perform the risk assessment. In order to calculate the
 risk levels associated with a given scenario, so-called \textit{harm trees} are
 constructed.
 
-Harm trees, similarily to attack trees commonly used in computer security (CITE
-ARTICLE), are used to describe the relationship between a privacy weakness, a
-feared event and a harm (REF all these). The root node of such a tree will
-denote a harm, with branches leading to feared events that may lead to the harm
-in question. The leaf nodes denote privacy weaknesses and are represented by a
-pair consisting of the most relevant risk source coupled with a privacy
-weakness. In order to specify whether multiple events are required for an event
-to take place, the keywords \textbf{AND} and \textbf{OR} are used as decorators
-on the connecting paths between the nodes.
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{pictures/harm_tree_ex.png}
+  \caption{}{Harm tree example.}
+  \label{fig:harm_tree_ex}
+\end{figure}
+
+Harm trees (see Figure \ref{fig:harm_tree_ex}), similarily to attack trees
+commonly used in computer security\cite{de2016priam}, are used to describe the
+relationship between a privacy weakness, a feared event and a harm (REF all
+these). The root node of such a tree will denote a harm, with branches leading
+to feared events that may lead to the harm in question. The leaf nodes denote
+privacy weaknesses and are represented by a pair consisting of the most relevant
+risk source coupled with a privacy weakness. In order to specify whether
+multiple events are required for an event to take place, the keywords
+\textbf{AND} and \textbf{OR} are used as decorators on the connecting paths
+between the nodes.
