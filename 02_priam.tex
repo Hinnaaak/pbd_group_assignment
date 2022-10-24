@@ -74,42 +74,59 @@ between the nodes.
 
 % Figure on risk level assessment
 
-The risk levels for a given scenario is then calculated in the following
-way\cite{de2016priam}:
+The risk levels for a given scenario, in this case the scenario previously
+given, is then calculated in the following way\cite{de2016priam}:
+
+% The steps themselves are a direct copy of the ones listed in PRIAM, while the
+% description I have made myself. Is this ok you think?
 
 \begin{enumerate}
-  \item{Find the value of \textit{exploitability} for each leaf node in the harm tree.}
+  \item{\textbf{Find the value of \textit{exploitability} for each leaf node in the harm tree.}}
 
        The \textit{exploitability} value is defined in the previous phase, and
        denotes how easy it would be to exploit a particular privacy weakness based on
-       relevant system attributes. For illustrative purposes, both are in this
-       case assigned the value medium.
+       relevant system attributes. For simplicity and illustrative purposes,
+       we have assigned the value medium to all three in this case.
 
-      \begin{figure}[hbt!]
-        \centering
-        \includegraphics[width=\textwidth]{pictures/exploitability.png}
-        \caption{}{Harm tree example.}
-        \label{fig:harm_tree_ex}
-      \end{figure}
-
-  \item{For each exploitation, choose the values of the relevant attributes of
+  \item{\textbf{For each exploitation, choose the values of the relevant attributes of
         the risk source most likely to exploit the privacy weakness leading to the
-        harm.}
+        harm.}}
+
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=0.8\textwidth]{pictures/step2.png}
+          \caption{}{}
+          \label{fig:favor}
+        \end{figure}
 
         In order to calculate the likelihood of an exploit occurring, the
         characteristics of the risk source should be accounted for. In other words, does
         the profile\footnote{Value of exploitation, motivation/fear etc.} of the risk
         source favor an exploitation or not. In the case of \textit{Friend or family}
-        the majority of attributes does not favor an exploitation, while the opposite is
-        true for the \textit{Hacker}.
+        the majority of attributes does not favor an exploitation, while we
+        consider the opposite true for both cases involving the \textit{Hacker}.
 
-  \item{Find out the likelihood of each of these exploitations from the above
-        exploitability value and values of the relevant risk source attributes}
+  \item{\textbf{Find out the likelihood of each of these exploitations from the above
+        exploitability value and values of the relevant risk source attributes}}
 
-        % Measurement rule
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=\textwidth]{pictures/measurement.png}
+          \caption{}{}
+          \label{fig:measurement}
+        \end{figure}
 
-        The measurement rule to determine the likelihood of exploitation can be
-        seen in Figure ? above, which means that the likelihood of our chosen exploitations are \textit{Limited} and \textit{Significant} respectively.
+        The measurement rule used in PRIAM to determine the likelihood of
+        exploitation can be seen in Figure \ref{fig:measurement} above, which means that
+        the likelihood of our chosen exploitations are \textit{Limited}.
+        \textit{Significant} and \textit{Significant} respectively.
+
+  \item{\textbf{Compute the likelihood of each feared event and harm according to the following
+        rules, where Pi is the likelihood of ith child node:}}
+
+    % TODO: Fix notation and add rules
+
+
 
 
 
