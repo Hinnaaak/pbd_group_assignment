@@ -72,7 +72,7 @@ multiple events are required for an event to take place, the keywords
 \textbf{AND} and \textbf{OR} are used as decorators on the connecting paths
 between the nodes.
 
-% Figure on risk level assessment
+\bigskip
 
 The risk levels for a given scenario, in this case the scenario previously
 given, is then calculated in the following way\cite{de2016priam}:
@@ -104,14 +104,14 @@ given, is then calculated in the following way\cite{de2016priam}:
         the profile\footnote{Value of exploitation, motivation/fear etc.} of the risk
         source favor an exploitation or not. In the case of \textit{Friend or family}
         the majority of attributes does not favor an exploitation, while we
-        consider the opposite true for both cases involving the \textit{Hacker}.
+        consider the opposite to be true for both cases involving the \textit{Hacker}.
 
   \item{\textbf{Find out the likelihood of each of these exploitations from the above
         exploitability value and values of the relevant risk source attributes}}
 
         \begin{figure}[hbt!]
           \centering
-          \includegraphics[width=\textwidth]{pictures/measurement.png}
+          \includegraphics[width=0.6\textwidth]{pictures/measurement.png}
           \caption{}{}
           \label{fig:measurement}
         \end{figure}
@@ -119,15 +119,24 @@ given, is then calculated in the following way\cite{de2016priam}:
         The measurement rule used in PRIAM to determine the likelihood of
         exploitation can be seen in Figure \ref{fig:measurement} above, which means that
         the likelihood of our chosen exploitations are \textit{Limited}.
-        \textit{Significant} and \textit{Significant} respectively.
+        \textit{Limited} and \textit{Significant} respectively.
 
   \item{\textbf{Compute the likelihood of each feared event and harm according to the following
-        rules, where Pi is the likelihood of ith child node:}}
+        rules, where $P_i$ is the likelihood of \textit{i}th child node:}}
+        \begin{itemize}
+          \item AND node with independent child nodes: $\prod_{i}P_{i}$.
+          \item AND node with dependent child nodes: $Min_{i}(P_{i})$.
+          \item OR node with independent child nodes: $1-\prod_{i}(1-P_{i})$.
+          \item OR node with dependent child nodes: $\sigma_{i}P_{i}$.
+        \end{itemize}
 
-    % TODO: Fix notation and add rules
+        In order to compute the likelihood of the feared event and ultimately
+        the harm, we simply apply the rules above to each level of the tree.
 
-
-
-
-
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=\textwidth]{pictures/harm_tree_wrl.png}
+          \caption{}{}
+          \label{fig:measurement}
+        \end{figure}
 \end{enumerate}
