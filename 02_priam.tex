@@ -20,6 +20,7 @@ order to accurately carry out the risk assessment activities in the \textit{Risk
 Assessment Phase}.
 
 \subsection{Information Gathering Phase}
+\label{subsec:IGP}
 As the foundation for the upcoming risk assessment, it is essential that the
 information collected in this phase is complete. To reduce the likelihood of an
 analyst missing aspects that may have an impact on privacy risks, the framework
@@ -29,7 +30,7 @@ weaknesses}, \textit{feared events} and \textit{privacy harms} are each
 associated with a set of \textit{categories} and \textit{attributes}. A category
 is essentially a list of elements relevant to a specific component, while
 attributes describes the characteristics of a component that may affect privacy
-risks\cite{de2016priam}.
+risks\cite{de:hal-01302541}.
 
 \begin{figure}[hbt!]
   \centering
@@ -40,10 +41,102 @@ risks\cite{de2016priam}.
 
 In Figure \ref{fig:cat_att} an example is given to illustrate this concept
 further. The potential or capability of the risk source, in this case the
-\textit{Hacker}, would be determined by the assigned values of its attributes.
-Similarly for \textit{Health data}, which is a category of the \textit{data}
-component, the attributes could indicate a potential privacy weakness. The
-categories and their corresponding attributes are however not only used for
-indicative purposes, but for constructing harm trees and calculating risk levels
-in the upcoming \textit{Risk Assessment Phase}.
+\textit{Hacker} (which is the category), would be determined by the assigned
+values of its attributes. Similarly for \textit{Health data}, which is a
+category of the \textit{data} component, the attributes could indicate a
+potential privacy weakness. The categories and their corresponding attributes
+are however not only used for indicative purposes, but for constructing harm
+trees and calculating risk levels in the next phase.
 
+\subsection{Risk Assessment Phase}
+With basis in the information collected in the \textit{Information Gathering
+Phase}, we are set to perform the risk assessment. In order to calculate the
+risk levels associated with a given scenario, so-called \textit{harm trees} are
+constructed.
+
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=\textwidth]{pictures/harm_tree_ex.png}
+  \caption{}{Harm tree example.}
+  \label{fig:harm_tree_ex}
+\end{figure}
+
+Harm trees (see Figure \ref{fig:harm_tree_ex}), similarily to attack trees
+commonly used in computer security\cite{de:hal-01302541}, are used to describe the
+relationship between a privacy weakness, a feared event and a harm (REF all
+these). The root node of such a tree will denote a harm, with branches leading
+to feared events that may lead to the harm in question. The leaf nodes denote
+privacy weaknesses and are represented by a pair consisting of the most relevant
+risk source coupled with a privacy weakness. In order to specify whether
+multiple events are required for an event to take place, the keywords
+\textbf{AND} and \textbf{OR} are used as decorators on the connecting paths
+between the nodes.
+
+\bigskip
+
+The risk levels for a given scenario, in this case the scenario previously
+given, is then calculated in the following way\cite{de:hal-01302541}:
+
+% The steps themselves are a direct copy of the ones listed in PRIAM, while the
+% description I have made myself. Is this ok you think?
+
+\begin{enumerate}
+  \item{\textbf{Find the value of \textit{exploitability} for each leaf node in the harm tree.}}
+
+       The \textit{exploitability} value is defined in the previous phase, and
+       denotes how easy it would be to exploit a particular privacy weakness based on
+       relevant system attributes. For simplicity and illustrative purposes,
+       we have assigned the value medium to all three in this case.
+
+  \item{\textbf{For each exploitation, choose the values of the relevant attributes of
+        the risk source most likely to exploit the privacy weakness leading to the
+        harm.}}
+
+        In order to calculate the likelihood of an exploit occurring, the
+        characteristics of the risk source should be accounted for. In other words, does
+        the profile\footnote{Value of exploitation, motivation/fear etc.} of the risk
+        source favor an exploitation or not. In the case of \textit{Friend or family}
+        the majority of attributes does not favor an exploitation, while we
+        consider the opposite to be true for both cases involving the \textit{Hacker}.
+
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=0.8\textwidth]{pictures/step2.png}
+          \caption{}{Exploitability and risk source favoring.}
+          \label{fig:favor}
+        \end{figure}
+
+  \item{\textbf{Find out the likelihood of each of these exploitations from the above
+        exploitability value and values of the relevant risk source attributes}}
+
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=0.6\textwidth]{pictures/measurement.png}
+          \caption{}{Likelihood measurement scale.}
+          \label{fig:measurement}
+        \end{figure}
+
+        The measurement rule used in PRIAM to determine the likelihood of
+        exploitation can be seen in Figure \ref{fig:measurement} above, which means that
+        the likelihood of our chosen exploitations are \textit{Limited}.
+        \textit{Limited} and \textit{Significant} respectively.
+
+  \item{\textbf{Compute the likelihood of each feared event and harm according to the following
+        rules, where $P_i$ is the likelihood of \textit{i}th child node:}}
+        \begin{itemize}
+          \item AND node with independent child nodes: $\prod_{i}P_{i}$.
+          \item AND node with dependent child nodes: $Min_{i}(P_{i})$.
+          \item OR node with independent child nodes: $1-\prod_{i}(1-P_{i})$.
+          \item OR node with dependent child nodes: $\sigma_{i}P_{i}$.
+        \end{itemize}
+
+        In order to compute the likelihood of the feared event and ultimately
+        the harm, we simply apply the rules above to each level of the tree.
+
+        \begin{figure}[hbt!]
+          \centering
+          \includegraphics[width=\textwidth]{pictures/harm_tree_wrl.png}
+          \caption{}{Harm tree with computed likelihood.}
+          \label{fig:measurement}
+        \end{figure}
+\end{enumerate}
