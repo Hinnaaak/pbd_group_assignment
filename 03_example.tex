@@ -7,17 +7,18 @@ UCLA Health, the health system of the University of California, Los Angeles (UCL
 \subsection{Privacy Harms}
 We will now describe the \textit{privacy harms} for the presented scenario, based on the PRIAM model\cite[Section 3.7]{de:hal-01302541}.
 
-Considering the scope and circumstances of the UCLA Health breach, the following examples for categories of \textit{privacy harms} can be observed:\\
-\textit{Physical harms}: A patient may be subject to stalking due to their address being leaked or receive wrong medical treatment as the consequence of the compromise of their medical data;\\
-\textit{Mental or psychological harms}: A patient fears misuse of their data, e.g. for identity theft, or is disadvantaged in an application due to a medical condition being disclosed;
-\textit{Financial harms}: A patient has to pay a higher health insurance premium for their alleged sedentary lifestyle inferred from medical data, or have to defend them self against identity theft ;\\
-\textit{Harms to dignity or reputation}: Disclosure of intimate personal habits or unhealthy lifestyle may cause a patient embarrassment;
-
+Considering the scope and circumstances of the UCLA Health breach, the following examples for categories of \textit{privacy harms} can be observed:
+\begin{itemize}
+	\item \textit{Physical harms}: A patient may be subject to stalking due to their address being leaked or receive wrong medical treatment as the consequence of the compromise of their medical data
+	\item \textit{Mental or psychological harms}: A patient fears misuse of their data, e.g. for identity theft, or is disadvantaged in an application due to a medical condition being disclosed
+	\item \textit{Financial harms}: A patient has to pay a higher health insurance premium for their alleged sedentary lifestyle inferred from medical data, or have to defend them self against identity theft
+	\item \textit{Harms to dignity or reputation}: Disclosure of intimate personal habits or unhealthy lifestyle may cause a patient embarrassment
+\end{itemize}
 Next, attributes in the form of \textit{victim} and \textit{intensity} can be assigned to the harms described in the categories of harms. Both attributes are measured as either \textit{Low}, \textit{Medium}, or \textit{High}, depending on how many individuals are effected for the \textit{victim} attribute, and the consequences, as well as the duration and reversibility of those consequences for the \textit{intensity} attribute. The \textit{severity} of the harm is then evaluated as the multiplication of both attributes. An exemplary result for the given scenario can be seen in Table \ref{harm_table}. It will be discussed further in the next section. For the complete description of the scale used, please refer to \cite[Section 3.7.1]{de:hal-01302541}.
 
 \begin{table}[h!]
     \centering
-
+\noindent\makebox[\textwidth]{
     \begin{tabular}{c|M{4cm}|M{3cm}|c|c|c}
     \hline
         Harm & Example of event & Categories & Victims & Intensity & Severity\\
@@ -30,22 +31,22 @@ Next, attributes in the form of \textit{victim} and \textit{intensity} can be as
         H.6 & Denial of Job & Psychologial, Financial & Low & High & Significant\\
     \hline
     \end{tabular}
-
+}
     \caption{Examples of harms of the UCLA Health breach and their attributes}
     \label{harm_table}    
 
 \end{table}
 
 \subsection{Discussion}
-First, we should take a look at the underlying \textit{feared event} and its relevance, considering a medical data breach. An \textit{feared event} in PRIAM consists of a category, defined by privacy weaknesses, and the attributes \textit{scope} and \textit{irreversibility} \cite[Section 3.6]{de:hal-01302541}. In the context of a medical breach, PRIAM can be extended to fit the specific needs, as proposed in \cite{wairimu2022modelling}. This adopted version provides us with the category of hacking/IT incidents for our \textit{feared event}. Further, the \textit{scope} is evaluated as \textit{High}, due to the large number of affected patients, and the irreversibility is \textit{High} as well, as disclosed data can not be undisclosed again.
+First, we should take a look at the underlying \textit{feared event} and its relevance, considering a medical data breach. A \textit{feared event} in PRIAM consists of a category, defined by privacy weaknesses, and the attributes \textit{scope} and \textit{irreversibility} \cite[Section 3.6]{de:hal-01302541}. In the context of a medical breach, PRIAM can be extended to fit the specific needs, as proposed by Wairimu and Fritsch \cite{wairimu2022modelling}. This adopted version provides us with the category of hacking/IT incidents for our \textit{feared event}. Further, the \textit{scope} is evaluated as \textit{High}, due to the large number of affected patients, and the irreversibility is \textit{High} as well, as disclosed data can not be undisclosed again.
  
-In Table \ref{harm_table}, we can observe that the \textit{victim} attribtute is most often estimated as \textit{Low}, while the \textit{intensity} is almost always scaled as \textit{High}. One factor for the \textit{intensity} evaluation is the \textit{High} \textit{irreversibility} of the \textit{feared event} that applies to the \textit{privacy harms} in this case as well. This leads to the \textit{severity} of each harm being almost exclusively rated as either \textit{Significant} or \textit{Maximum}. We can deduce that \textit{privacy harms} from a medical breach, while mostly only impacting a single individual, are of huge consequences for the affected individual. However, the \textit{High} \textit{scale} of the \textit{feared event} in this incident must be considered during assesment. 
+In Table \ref{harm_table}, we can observe that the \textit{victim} attribute is most often estimated as \textit{Low}, while the \textit{intensity} is almost always scaled as \textit{High}. One factor for the \textit{intensity} evaluation is the \textit{High} \textit{irreversibility} of the \textit{feared event} that applies to the \textit{privacy harms} in this case as well. This leads to the \textit{severity} of each harm being almost exclusively rated as either \textit{Significant} or \textit{Maximum}. We can deduce that \textit{privacy harms} from a medical breach, while mostly only impacting a single individual, are of huge consequences for the affected individual. However, the \textit{High} \textit{scale} of the \textit{feared event} in this incident must be considered during assesment. 
 
 Finally, we can take a look at the relative impact of each category of \textit{privacy harm} for our \textit{feared event}, by assigning numerical values to the \textit{severity}, as shown in \cite{wairimu2022modelling}. The results can be seen in Table \ref{related_categories}, with the average severity score being build for categories with multiple \textit{privacy harms}. It shows that the financial aspect is impacted the most for the UCLA Health breach.  
 
 \begin{table}[h!]
     \centering
-
+\noindent\makebox[\textwidth]{
     \begin{tabular}{c|c|c|c}
     \hline
         Category & Harms & Severity & Avg Severity Score \\
@@ -56,7 +57,7 @@ Finally, we can take a look at the relative impact of each category of \textit{p
         Financial & H.2, H.3, H.6 & Significant, Maximum, Significant & 4 \\
     \hline
     \end{tabular}
-
+}
     \caption{Relative impact of categories of privacy harms in the UCLA Health breach}
     \label{related_categories}
 \end{table}
